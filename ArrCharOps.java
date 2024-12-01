@@ -131,14 +131,17 @@ public class ArrCharOps {
      * characters containing the characters "urge".
      */
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        if (arr == null)
+        if (arr == null || beginIndex < 0 || endIndex > arr.length || beginIndex >= endIndex) 
             return null;
         int newIndex = endIndex - beginIndex;
         char[] newArr = new char[newIndex];
-        for (int i =0; i <newArr.length-1; i++)
-            newArr[i] = arr[i];
+        for (int i =0; i <newIndex; i++){
+            newArr[i] = arr[beginIndex+i];
+        }
         return newArr;
     }
+
+    
 
     /**
      * Returns a single integer that represents the given array. This integer is
@@ -198,11 +201,16 @@ public class ArrCharOps {
     public static int compareTo(String str1, String str2) {
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            if (c < 'a' || c < 'z')
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
+                return -2;
+        }
+        for (int i = 0; i < str2.length(); i++) {
+            char c = str2.charAt(i);
+            if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
                 return -2;
         }
         int minLenght = Math.min(str1.length(), str2.length());
-        for (int i = 0; i < minLenght; i++) {
+        for (int i = 0; i <minLenght ; i++) {
             char char1=str1.charAt(i);
             char char2=str2.charAt(i);
         if(char1<char2){
