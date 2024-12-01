@@ -1,12 +1,11 @@
 public class Primes {
-    public static void main(String[] args) {
+public static void main(String[] args) {
         int n=Integer.parseInt(args[0]);
         if(n<2){
-System.out.println("Not a prime number");
+        System.out.println("Not a prime number");
         }else{
         isPrime(n);
         }
-    
     }
     public static void isPrime(int n){
         boolean[] isPrime = new boolean[n + 1];
@@ -24,6 +23,7 @@ System.out.println("Not a prime number");
                     j += i;
                 }
             }
+            i++;
           }
         System.out.println("Prime numbers up to " + n + ":");
         int Count = 0;
@@ -35,8 +35,9 @@ System.out.println("Not a prime number");
             }
             i++;
         }
-        double percent = (double) Count / (n - 1) * 100;
-        System.out.println("There are " +Count + " primes between 2 and " + n +" "+(int)percent+" % are primes)");
+        double percent = (double) (Count / (n - 1) * 100);
+        System.out.println("There are " +Count + " primes between 2 and " + n +" ("+ Math.round(percent)+" % are primes)");
 
-    }
 }
+}
+

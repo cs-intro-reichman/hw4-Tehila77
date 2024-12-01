@@ -110,16 +110,15 @@ public class ArrCharOps {
      * Returns an array which is the concatanation of the two given arrays.
      */
     public static char[] concat(char[] arr1, char[] arr2) {
-        if (arr1==null || arr1==null)
-            return null;
-        int theLength = arr1.length + arr2.length;
-        char[] arr3 = new char[theLength];
-        for (int i = 0; i < arr1.length; i++)
-            arr3[i] = arr1[i];
-        for (int i = 0; i < arr2.length; i++)
-            arr3[arr1.length+i] = arr2[i];
-
-        return arr3;
+        if (arr1 == null || arr2 == null) 
+        return null;
+    int theLength = arr1.length + arr2.length;
+    char[] arr3 = new char[theLength];
+    for (int i = 0; i < arr1.length; i++) 
+        arr3[i] = arr1[i];
+    for (int i = 0; i < arr2.length; i++) 
+        arr3[arr1.length + i] = arr2[i];
+    return arr3;
     }
 
     /**
@@ -156,17 +155,15 @@ public class ArrCharOps {
      * The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        if (arr == null)
-            return 0;
-        long sum = 0;
-        int n = arr.length;
-        sum = sum + (long) Math.pow((arr[0] * 7), (n - 1));
-        for (int i = 1; i < (n - 2); i++) {
-            sum = sum + (long) Math.pow((arr[0] * 7), (n - 2));
-        }
-        sum = sum + arr[n - 2] + arr[n - 1];
-        return sum;
-
+            if (arr == null || arr.length == 0) {
+                return 0;
+            }
+            long sum = 0;
+            int n = arr.length;
+            for (int i = 0; i < n; i++) {
+                sum += arr[i] * Math.pow(7, n - 1 - i);
+            }
+            return sum;
     }
 
     /**
@@ -209,21 +206,25 @@ public class ArrCharOps {
             if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z'))
                 return -2;
         }
-        int minLenght = Math.min(str1.length(), str2.length());
-        for (int i = 0; i <minLenght ; i++) {
-            char char1=str1.charAt(i);
-            char char2=str2.charAt(i);
-        if(char1<char2){
+
+        if (str1.length()==0 && str2.length()==0) {
+            return 0;
+        }else if (str1.length()==0)  return -1;
+        else if (str2.length()==0) return 1;
+
+        
+        int minLength = Math.min(str1.length(), str2.length());
+        for (int i = 0; i < minLength; i++) {
+        char char1 = str1.charAt(i);
+        char char2 = str2.charAt(i);
+        if (char1 < char2) {
             return -1;
-        }else if(char1> char2){
+        } else if (char1 > char2) {
             return 1;
         }
         }
-        if(str1.length()<str2.length()){
-        return -1;
-        }else if(str1.length()>str2.length()){
-        return 1;
-        }
-        return 0;
-    }
+        if (str1.length() < str2.length()) return -1;
+        if  (str2.length() < str1.length())  return 1;
+         return 0;
+}
 }
