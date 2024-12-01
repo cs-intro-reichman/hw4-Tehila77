@@ -24,6 +24,7 @@ public class ArrCharOps {
         System.out.println(compareTo("Zoo", "zoo"));
         System.out.println(hashCode(arr1));
         System.out.println(hashCode(arr2));
+        
     }
 
     /**
@@ -98,7 +99,7 @@ public class ArrCharOps {
      * If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        for (int i = arr.length - 1; i < 0; i--) {
+        for (int i = arr.length - 1; i >= 0; i--) {
             if (arr[i] == ch)
                 return i;
         }
@@ -109,14 +110,14 @@ public class ArrCharOps {
      * Returns an array which is the concatanation of the two given arrays.
      */
     public static char[] concat(char[] arr1, char[] arr2) {
-        if (arr1.length == 0 & arr1.length == 0)
+        if (arr1==null || arr1==null)
             return null;
         int theLength = arr1.length + arr2.length;
         char[] arr3 = new char[theLength];
         for (int i = 0; i < arr1.length; i++)
-            arr3[i] = arr2[i];
+            arr3[i] = arr1[i];
         for (int i = 0; i < arr2.length; i++)
-            arr3[arr1.length] = arr2[i];
+            arr3[arr1.length+i] = arr2[i];
 
         return arr3;
     }
@@ -134,7 +135,7 @@ public class ArrCharOps {
             return null;
         int newIndex = endIndex - beginIndex;
         char[] newArr = new char[newIndex];
-        for (int i = beginIndex; i < endIndex - 1; i++)
+        for (int i =0; i <newArr.length-1; i++)
             newArr[i] = arr[i];
         return newArr;
     }
