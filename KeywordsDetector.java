@@ -29,7 +29,7 @@ public class KeywordsDetector {
                 String wordJ=keywords[j];
                 String theWord=wordJ.toLowerCase();
                 if(MyString.contains(theSentence,theWord)){
-                System.out.println(theSentence);
+                System.out.println(sentenceI);
                      break;
                 }
             
