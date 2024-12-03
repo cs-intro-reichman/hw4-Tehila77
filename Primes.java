@@ -24,7 +24,7 @@ public static void main(String[] args) {
                 }
             }
             i++;
-          }
+        }
         System.out.println("Prime numbers up to " + n + ":");
         int Count = 0;
         i = 2;
@@ -36,7 +36,7 @@ public static void main(String[] args) {
             i++;
         }
         double percent = (double) Count / n * 100;
-        System.out.println("There are " +Count + " primes between 2 and " + n +" ("+ Math.round(percent)+" % are primes)");
+        System.out.println("There are " +Count + " primes between 2 and " + n +" ("+ Math.round(percent)+"% are primes)");
 
 }
 }
